@@ -20,7 +20,7 @@ def get_table(table_name):
     print_cur(cur)
 
 def insert(table_name, values):
-    cur.execute("insert into %s values%s;", (table_name, values))
+    cur.execute(SQL("insert into {} values%s;").format(Identifier(table_name)),values)
     
 table_name = 'country'
 values = ('default',"'Korea'")
