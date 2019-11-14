@@ -20,5 +20,5 @@ def get_table(table_name):
 get_table('country')
 
 conn.commit()
-cursor.close()
+cur.close()
 conn.close()
