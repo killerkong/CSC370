@@ -12,13 +12,13 @@ cur = conn.cursor()
 
 
 def get_table(table_name):
-    cur.mogrify("select * from (%s);", (table_name))
-    rows = cur.fetchall()
-    for row in rows:
-        print(row)
+    statement = cur.mogrify("select * from (%s);", (table_name))
+    print(statement)
 
 
-cur.execute("insert into country values(default, 'Korea');")
-get_table("country")
+#cur.execute("insert into country values(default, 'Korea');")
+get_table('country')
 
-
+conn.commit()
+cursor.close()
+conn.close()
