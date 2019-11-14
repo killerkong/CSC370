@@ -19,7 +19,7 @@ def get_table(table_name):
     cur.execute(sql)
     print_cur(cur)
 
-get_table("country")
+cur.execute("\d")
 
 conn.commit()
 cur.close()
