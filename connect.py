@@ -11,14 +11,14 @@ cur = conn.cursor()
 
 
 
-def get_country():
-    cur.execute("select * from country;")
+def get_table(table_name):
+    cur.execute("select * from %s;", table_name)
     rows = cur.fetchall()
     for row in rows:
         print(row)
 
 
 cur.execute("insert into country values(default, 'Korea');")
-get_country()
+get_table("country")
 
 
