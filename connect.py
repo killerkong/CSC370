@@ -12,9 +12,9 @@ cur = conn.cursor()
 
 
 def get_table(table_name):
-    statement = cur.mogrify("select * from %s, ;", (table_name,))
-    print(statement)
-    cur.execute(statement)
+    #statement = cur.mogrify("select * from %s;", (table_name,))
+    #print(statement)
+    cur.execute("select * from %s;", (table_name))
 
 #cur.execute("insert into country values(default, 'Korea');")
 country = 'country'
