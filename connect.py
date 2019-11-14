@@ -12,13 +12,11 @@ cur = conn.cursor()
 
 
 def get_table(table_name):
-    #statement = cur.mogrify("select * from %s;", (table_name,))
-    #print(statement)
-    cur.execute("select * from %s;", (table_name,))
+    statement = cur.mogrify("select * from %s;".format(Identifier(table_name),))
+    print(statement)
+    cur.execute(statement)
 
-#cur.execute("insert into country values(default, 'Korea');")
-country = ''
-country = raw_input('Enter you country: ')
+country = 'country'
 get_table(country)
 
 conn.commit()
