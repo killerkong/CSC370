@@ -15,10 +15,9 @@ def get_table(table_name):
     print(sql)
     cur.execute(sql)
 
-country = 'country'
-get_table(country)
+get_table("country")
 
-
+cur.execute("select * from country;")
 
 conn.commit()
 cur.close()
