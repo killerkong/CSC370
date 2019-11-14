@@ -1,5 +1,4 @@
 import sys, csv, psycopg2
-from psycopg2.extensions import adapt
 
 psql_user = 'ruizhang2018'
 psql_db = 'sqlboys'
