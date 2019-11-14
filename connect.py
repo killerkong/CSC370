@@ -1,4 +1,5 @@
 import sys, csv, psycopg2
+from psycopg2.extensions import adapt
 
 psql_user = 'ruizhang2018'
 psql_db = 'sqlboys'
@@ -12,7 +13,7 @@ cur = conn.cursor()
 print("select * from %s;" % "country")
 
 def get_table(table_name):
-    sql = "select * from %s;" % table_name
+    sql = "select * from %s;" % \ adapt(table_name).getquoted()
     cur.execute(sql)
 
 country = 'country'
