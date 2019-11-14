@@ -20,10 +20,10 @@ def get_table(table_name):
     print_cur(cur)
 
 def insert(table_name, values):
-    cur.execute("insert into %s values(%s);", (table_name, values))
+    cur.execute("insert into %s values%s;", (table_name, values))
     
-table_name = "country"
-values = ('default',"Korea")
+table_name = 'country'
+values = ('default',"'Korea'")
 insert(table_name, values)
 
 get_table("country")
