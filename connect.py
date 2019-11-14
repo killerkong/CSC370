@@ -19,8 +19,15 @@ def get_table(table_name):
     cur.execute(sql)
     print_cur(cur)
 
-cur.execute("\d")
+def insert(table_name, values):
+    sql = "insert into {} values {};".format(table_name, values)
+    print(sql)
+    cur.execute(sql)
+    
+table_name = "country"
+values = ("Korea",)
+insert(table_name, values)
 
-conn.commit()
-cur.close()
-conn.close()
+#conn.commit()
+#cur.close()
+#conn.close()
