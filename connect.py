@@ -12,9 +12,7 @@ cur = conn.cursor()
 
 
 def get_table(table_name):
-    statement = cur.mogrify("select * from %s;".format(Identifier(table_name),))
-    print(statement)
-    cur.execute(statement)
+    cur.execute(SQL("select * from %s;").format(Identifier(table_name),))
 
 country = 'country'
 get_table(country)
