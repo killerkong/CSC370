@@ -13,5 +13,13 @@ rows = cur.fetchall()
 
 for row in rows:
         print(row)
-print("(^=w=^)")
+
+cur.execute("insert into country values(default, 'Korea');")
+get_country()
+
+def get_country():
+    cur.execute("select * from country;")
+    rows = cur.fetchall()
+    for row in rows:
+        print(row)
 
