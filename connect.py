@@ -17,12 +17,6 @@ def get_country():
     for row in rows:
         print(row)
 
-        
-cur.execute("select * from country;")
-rows = cur.fetchall()
-
-for row in rows:
-        print(row)
 
 cur.execute("insert into country values(default, 'Korea');")
 get_country()
