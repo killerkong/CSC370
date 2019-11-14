@@ -12,9 +12,9 @@ cur = conn.cursor()
 print("select * from %s;" % "country")
 
 def get_table(table_name):
-    sql = "select * from %s;"
-    data = (table_name,)
-    cur.execute(sql, data)
+    sql = "select * from %s;" % table_name
+    
+    cur.execute(sql)
 
 country = 'country'
 get_table(country)
