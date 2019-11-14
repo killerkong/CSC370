@@ -12,7 +12,7 @@ cur = conn.cursor()
 
 
 def get_table(table_name):
-    statement = cur.mogrify("select * from (%s,);", (table_name,))
+    statement = cur.mogrify("select * from %s;", (table_name,))
     print(statement)
     cur.execute(statement)
 
