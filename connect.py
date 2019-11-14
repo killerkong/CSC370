@@ -8,6 +8,16 @@ psql_port = 5432
 conn = psycopg2.connect(dbname=psql_db, user=psql_user,password=psql_password,host=psql_server, port=psql_port)
 
 cur = conn.cursor()
+
+
+
+def get_country():
+    cur.execute("select * from country;")
+    rows = cur.fetchall()
+    for row in rows:
+        print(row)
+
+        
 cur.execute("select * from country;")
 rows = cur.fetchall()
 
@@ -17,9 +27,4 @@ for row in rows:
 cur.execute("insert into country values(default, 'Korea');")
 get_country()
 
-def get_country():
-    cur.execute("select * from country;")
-    rows = cur.fetchall()
-    for row in rows:
-        print(row)
 
