@@ -25,7 +25,7 @@ def insert(table_name, values):
     cur.execute(sql)
     
 table_name = "country"
-values = ("Korea",)
+values = ("default","Korea")
 insert(table_name, values)
 
 #conn.commit()
