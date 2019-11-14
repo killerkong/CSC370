@@ -13,10 +13,11 @@ def get_table(table_name):
     sql = "select * from {};".format(table_name)
     print(sql)
     cur.execute(sql)
+    rows = cur.fetchall()
+    for row in rows:
+        print(row)
 
 get_table("country")
-
-cur.execute("select * from country;")
 
 conn.commit()
 cur.close()
