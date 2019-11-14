@@ -22,7 +22,7 @@ def get_table(table_name):
 def insert(table_name, values):
     sql = "insert into %s values %s;"
     data = (table_name, values)
-    cur.execute(sql, values)
+    cur.execute(sql, data)
     
 table_name = "country"
 values = ('default',"Korea")
