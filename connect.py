@@ -9,7 +9,7 @@ conn = psycopg2.connect(dbname=psql_db, user=psql_user,password=psql_password,ho
 
 cur = conn.cursor()
 
-
+print("select * from %s;" % "country")
 
 def get_table(table_name):
     sql = "select * from %s;"
@@ -18,6 +18,8 @@ def get_table(table_name):
 
 country = 'country'
 get_table(country)
+
+
 
 conn.commit()
 cur.close()
