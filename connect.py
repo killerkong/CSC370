@@ -9,13 +9,15 @@ conn = psycopg2.connect(dbname=psql_db, user=psql_user,password=psql_password,ho
 
 cur = conn.cursor()
 
-def get_table(table_name):
-    sql = "select * from {};".format(table_name)
-    print(sql)
-    cur.execute(sql)
+def print_cur(cur):
     rows = cur.fetchall()
     for row in rows:
         print(row)
+        
+def get_table(table_name):
+    sql = "select * from {};".format(table_name)
+    cur.execute(sql)
+    print_cur(cur)
 
 get_table("country")
 
