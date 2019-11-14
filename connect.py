@@ -17,8 +17,8 @@ def get_table(table_name):
     cur.execute("select * from %s;", (table_name,))
 
 #cur.execute("insert into country values(default, 'Korea');")
-country 
-country = input('Enter you country: ')
+country = ''
+country = raw_input('Enter you country: ')
 get_table(country)
 
 conn.commit()
