@@ -17,7 +17,7 @@ def get_table(table_name):
     cur.execute(statement)
 
 #cur.execute("insert into country values(default, 'Korea');")
-country = 'country'
+country = "country"
 get_table(country)
 
 conn.commit()
