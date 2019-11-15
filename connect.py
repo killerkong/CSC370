@@ -31,13 +31,13 @@ def insert_category():
     cur.execute("insert into category(category_name) values ('Computational Geometry');")
 
 def insert_section():
-    cur.execute("insert into section (section_name, category_id, previous_section_id, next_section_id) values ('Functions', 9, 1, 1);")
-    cur.execute("insert into section (section_name, category_id, previous_section_id, next_section_id) values ('Transformators', 9, 1, 3);")
-    cur.execute("insert into section (section_name, category_id, previous_section_id, next_section_id) values ('Polynomial Functions', 9, 2, 4);")
-    cur.execute("insert into section (section_name, category_id, previous_section_id, next_section_id) values ('Exponential Functions', 9, 3, 5);")
-    cur.execute("insert into section (section_name, category_id, previous_section_id, next_section_id) values ('Trigonometry', 12, 4, 6);")
-    cur.execute("insert into section (section_name, category_id, previous_section_id, next_section_id) values ('Two-dimensional Vectors', 11, 5, 7);")
-    cur.execute("insert into section (section_name, category_id, previous_section_id, next_section_id) values ('Three-dimensional Vectors', 11, 6, 18;")
+    cur.execute("insert into section (section_name, category_id, previous_section_id, next_section_id) values ('Functions', select category_id from category where category_name = 'Elementary Algebra', 1, 1);")
+    cur.execute("insert into section (section_name, category_id, previous_section_id, next_section_id) values ('Transformators', select category_id from category where category_name = 'Elementary Algebra', 1, 3);")
+    cur.execute("insert into section (section_name, category_id, previous_section_id, next_section_id) values ('Polynomial Functions', select category_id from category where category_name = 'Elementary Algebra', 2, 4);")
+    cur.execute("insert into section (section_name, category_id, previous_section_id, next_section_id) values ('Exponential Functions', select category_id from category where category_name = 'Elementary Algebra', 3, 5);")
+    cur.execute("insert into section (section_name, category_id, previous_section_id, next_section_id) values ('Trigonometry', select category_id from category where category_name = 'Algebraic Geometry', 4, 6);")
+    cur.execute("insert into section (section_name, category_id, previous_section_id, next_section_id) values ('Two-dimensional Vectors', select category_id from category where category_name = 'Linear Algebra', 5, 7);")
+    cur.execute("insert into section (section_name, category_id, previous_section_id, next_section_id) values ('Three-dimensional Vectors', select category_id from category where category_name = 'Linear Algebra', 6, 18;")
     
 #insert_category()
 insert_section()
