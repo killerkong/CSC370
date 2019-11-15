@@ -30,9 +30,11 @@ def insert_category():
     cur.execute("insert into category(category_name) values ('Discrete Geometry');")
     cur.execute("insert into category(category_name) values ('Computational Geometry');")
 
+def insert_section():
+    
 insert_category()
 get_table("category")
 
-#conn.commit()
-#cur.close()
-#conn.close()
+conn.commit()
+cur.close()
+conn.close()
