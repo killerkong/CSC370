@@ -39,7 +39,7 @@ def insert_section():
     cur.execute("insert into section (section_name, category_id, previous_section_id, next_section_id) values ('Two-dimensional Vectors', 11, 5, 7);")
     cur.execute("insert into section (section_name, category_id, previous_section_id, next_section_id) values ('Three-dimensional Vectors', 11, 6, 18;")
     
-//insert_category()
+#insert_category()
 insert_section()
 get_table("category")
 get_table("section")
