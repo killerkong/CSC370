@@ -20,14 +20,17 @@ def get_table(table_name):
     cur.execute(sql)
     print_cur(cur)
 
-def insert(table_name, values):
-    cur.execute(sql.SQL("insert into {} values%s;").format(sql.Identifier(table_name)),values)
-    
-table_name = 'country'
-values = ('default',"'Korea'")
-insert(table_name, values)
+def insert_category():
+    cur.execute("insert into category(category_name) values ('Elementary Algebra');")
+    cur.execute("insert into category(category_name) values ('Abstract Algebra');")
+    cur.execute("insert into category(category_name) values ('Linear Algebra');")
+    cur.execute("insert into category(category_name) values ('Algebraic Geometry');")
+    cur.execute("insert into category(category_name) values ('Euclidean Geometry');")
+    cur.execute("insert into category(category_name) values ('Differential Geometry');")
+    cur.execute("insert into category(category_name) values ('Discrete Geometry');")
+    cur.execute("insert into category(category_name) values ('Computational Geometry');")
 
-get_table("country")
+get_table("category")
 
 #conn.commit()
 #cur.close()
