@@ -31,6 +31,7 @@ def insert_category():
     cur.execute("insert into category(category_name) values ('Computational Geometry');")
 
 def insert_section():
+    print()
     
 insert_category()
 get_table("category")
