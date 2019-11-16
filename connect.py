@@ -30,20 +30,38 @@ def insert_category():
     cur.execute("insert into category(category_name) values ('Discrete Geometry');")
     cur.execute("insert into category(category_name) values ('Computational Geometry');")
 
-def insert_section():
-    cur.execute("insert into section (section_name, category_id, previous_section_id, next_section_id) values ('Functions', (select category_id from category where category_name = 'Elementary Algebra'), 1, 1);")
-    cur.execute("insert into section (section_name, category_id, previous_section_id, next_section_id) values ('Transformators', (select category_id from category where category_name = 'Elementary Algebra'), 1, 3);")
-    cur.execute("insert into section (section_name, category_id, previous_section_id, next_section_id) values ('Polynomial Functions', (select category_id from category where category_name = 'Elementary Algebra'), 2, 4);")
-    cur.execute("insert into section (section_name, category_id, previous_section_id, next_section_id) values ('Exponential Functions', (select category_id from category where category_name = 'Elementary Algebra'), 3, 5);")
-    cur.execute("insert into section (section_name, category_id, previous_section_id, next_section_id) values ('Trigonometry', (select category_id from category where category_name = 'Algebraic Geometry'), 4, 6);")
-    cur.execute("insert into section (section_name, category_id, previous_section_id, next_section_id) values ('Two-dimensional Vectors', (select category_id from category where category_name = 'Linear Algebra'), 5, 7);")
-    cur.execute("insert into section (section_name, category_id, previous_section_id, next_section_id) values ('Three-dimensional Vectors', (select category_id from category where category_name = 'Linear Algebra'), 6, 18;")
+    
+def insert_section(section_name, category_name, previous_section, next_section):
+    sql = "insert into section (section_name, category_id, previous_section_id, next_section_id) values ('{}', (select category_id from category where category_name = '{}'), (select section_id from section where section_name = '{}'), (select section_id from section where section_name = '{}'));".format(section_name, category_name, previous_section, next_section)
+    
+    sql_previous = "update section set next_section_id = (select section_id from section where section_name = '{}') where section_name = '{}';".format(section_name, previous_section)
+    
+    sql_next = "update section set previous_section_id = (select section_id from section where section_name = '{}') where section_name = '{}';".format(section_name, next_section)
+    
+    cur.execute(sql)
+    cur.execute(sql_previous)
+    cur.execute(sql_next)
+    #print(sql)
+    #print(sql_previous)
+    #print(sql_next)
+    
     
 #insert_category()
-insert_section()
+cur.execute("insert into section(section_name, previous_section_id, next_section_id) values ('head', null, null)")
+cur.execute("insert into section(section_name, previous_section_id, next_section_id) values('tail', null, null)")
+cur.execute("update section set next_section_id = (select section_id from section where section_name = 'tail') where section_name = 'head';")
+cur.execute("update section set previous_section_id = (select section_id from section where section_name = 'head') where section_name = 'tail';")
+
+insert_section('Functions', 'Elementary Algebra', 'head', 'tail')
+insert_section('Transformators', 'Elementary Algebra', 'Functions', 'tail')
+insert_section('Polynomial Functions', 'Elementary Algebra', 'Transformators', 'tail')
+insert_section('Exponential Functions', 'Elementary Algebra', 'Polynomial Functions', 'tail')
+insert_section('Trigonometry', 'Algebraic Geometry', 'Exponential Functions', 'tail')
+insert_section('Two-dimensional Vectors', 'Linear Algebra', 'Trigonometry', 'tail')
+insert_section('Three-dimensional Vectors', 'Linear Algebra', 'Two-dimensional Vectors', 'tail')
 get_table("category")
 get_table("section")
 
-conn.commit()
-cur.close()
-conn.close()
+#conn.commit()
+#cur.close()
+#conn.close()
