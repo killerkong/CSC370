@@ -47,18 +47,19 @@ def insert_section(section_name, category_name, previous_section, next_section):
     
     
 #insert_category()
+
 cur.execute("insert into section(section_name, category_id, previous_section_id, next_section_id) values ('head', null, null, null)")
 cur.execute("insert into section(section_name, category_id, previous_section_id, next_section_id) values('tail', null, null, null)")
 cur.execute("update section set next_section_id = (select section_id from section where section_name = 'tail') where section_name = 'head';")
 cur.execute("update section set previous_section_id = (select section_id from section where section_name = 'head') where section_name = 'tail';")
 
-insert_section('Functions', 'Elementary Algebra', 'head', 'tail')
-insert_section('Transformators', 'Elementary Algebra', 'Functions', 'tail')
-insert_section('Polynomial Functions', 'Elementary Algebra', 'Transformators', 'tail')
-insert_section('Exponential Functions', 'Elementary Algebra', 'Polynomial Functions', 'tail')
-insert_section('Trigonometry', 'Algebraic Geometry', 'Exponential Functions', 'tail')
-insert_section('Two-dimensional Vectors', 'Linear Algebra', 'Trigonometry', 'tail')
-insert_section('Three-dimensional Vectors', 'Linear Algebra', 'Two-dimensional Vectors', 'tail')
+insert_section('Counting and number patterns', 'Elementary Algebra', 'head', 'tail')
+insert_section('Addition', 'Elementary Algebra', 'Counting and number patterns', 'tail')
+insert_section('Subtraction', 'Elementary Algebra', 'Addition', 'tail')
+insert_section('Comparing', 'Elementary Algebra', 'Subtraction', 'tail')
+insert_section('Two-dimensional shapes', 'Algebraic Geometry', 'Comparing', 'tail')
+insert_section('Three-dimensional shapes', 'Algebraic Geometry', 'Two-dimensional shapes', 'tail')
+insert_section('Patterns', 'Algebraic Geometry', 'Three-dimensional shapes', 'tail')
 
 #get_table("category")
 get_table("section")
