@@ -48,6 +48,11 @@ def insert_section(section_name, category_name, previous_section, next_section):
     
 #insert_category()
 
+def insert_appointment(student_id, teacher_id, day, hour):
+    sql = "insert into appointment(student_id, teacher_id, day, hour) values({}, {}, TO_DATE('{}', 'DD/MM/YYYY'), {})".format(student_id, teacher_id, day, hour)
+    cur.execute(sql)
+  
+'''
 cur.execute("insert into section(section_name, category_id, previous_section_id, next_section_id) values ('head', null, null, null)")
 cur.execute("insert into section(section_name, category_id, previous_section_id, next_section_id) values('tail', null, null, null)")
 cur.execute("update section set next_section_id = (select section_id from section where section_name = 'tail') where section_name = 'head';")
@@ -63,6 +68,11 @@ insert_section('Patterns', 'Algebraic Geometry', 'Three-dimensional shapes', 'ta
 
 #get_table("category")
 get_table("section")
+'''
+insert_appointment('6000002', '22284', '21/12/2019', '13')
+insert_appointment('6000002', '22286', '22/12/2019', '13')
+insert_appointment('6000004', '22286', '22/12/2019', '14')
+insert_appointment('6000003', '22284', '22/12/2019', '16')
 
 conn.commit()
 cur.close()
