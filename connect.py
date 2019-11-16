@@ -73,7 +73,7 @@ insert_appointment('6000002', '22284', '21/12/2019', '13')
 insert_appointment('6000002', '22286', '22/12/2019', '13')
 insert_appointment('6000004', '22286', '22/12/2019', '14')
 insert_appointment('6000003', '22284', '22/12/2019', '16')
-
+get_table("appointment")
 conn.commit()
 cur.close()
 conn.close()
