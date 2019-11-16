@@ -47,8 +47,8 @@ def insert_section(section_name, category_name, previous_section, next_section):
     
     
 #insert_category()
-cur.execute("insert into section(section_name, category_name, previous_section_id, next_section_id) values ('head', null, null, null)")
-cur.execute("insert into section(section_name, category_name, previous_section_id, next_section_id) values('tail', null, null, null)")
+cur.execute("insert into section(section_name, category_id, previous_section_id, next_section_id) values ('head', null, null, null)")
+cur.execute("insert into section(section_name, category_id, previous_section_id, next_section_id) values('tail', null, null, null)")
 cur.execute("update section set next_section_id = (select section_id from section where section_name = 'tail') where section_name = 'head';")
 cur.execute("update section set previous_section_id = (select section_id from section where section_name = 'head') where section_name = 'tail';")
 
