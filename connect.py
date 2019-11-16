@@ -59,9 +59,10 @@ insert_section('Exponential Functions', 'Elementary Algebra', 'Polynomial Functi
 insert_section('Trigonometry', 'Algebraic Geometry', 'Exponential Functions', 'tail')
 insert_section('Two-dimensional Vectors', 'Linear Algebra', 'Trigonometry', 'tail')
 insert_section('Three-dimensional Vectors', 'Linear Algebra', 'Two-dimensional Vectors', 'tail')
-get_table("category")
+
+#get_table("category")
 get_table("section")
 
-#conn.commit()
-#cur.close()
-#conn.close()
+conn.commit()
+cur.close()
+conn.close()
