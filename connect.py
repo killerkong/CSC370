@@ -31,7 +31,10 @@ def insert_category():
     cur.execute("insert into category(category_name) values ('Computational Geometry');")
 
 def insert_section():
-    cur.execute("insert into section (section_name, category_id, previous_section_id, next_section_id) values ('Functions', (select category_id from category where category_name = 'Elementary Algebra'), 1, 1);")
+    cur.execute("insert into section (section_name, cateory_id, previous_section_id, next_section_id) values (null, null, null, null)")
+    cur.execute("insert into section (section_name, category_id, previous_section_id, next_section_id) values (null, null, null, null)")
+    cur.execute("")
+    cur.execute("insert into section (section_name, category_id, previous_section_id, next_section_id) values ('Functions', (select category_id from category where category_name = 'Elementary Algebra'), 1, 2);")
     cur.execute("insert into section (section_name, category_id, previous_section_id, next_section_id) values ('Transformators', (select category_id from category where category_name = 'Elementary Algebra'), 1, 3);")
     cur.execute("insert into section (section_name, category_id, previous_section_id, next_section_id) values ('Polynomial Functions', (select category_id from category where category_name = 'Elementary Algebra'), 2, 4);")
     cur.execute("insert into section (section_name, category_id, previous_section_id, next_section_id) values ('Exponential Functions', (select category_id from category where category_name = 'Elementary Algebra'), 3, 5);")
